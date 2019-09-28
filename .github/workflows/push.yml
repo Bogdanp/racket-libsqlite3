@@ -12,9 +12,20 @@ jobs:
           name: linux-x86-64
           path: artifacts/linux-x86-64
 
+  build-macos:
+    name: build on macOS
+    runs-on: macOS-10.14
+    steps:
+      - uses: actions/checkout@master
+      - run: bin/build-macos-x86-64.sh
+      - uses: actions/upload-artifact@v1
+        with:
+          name: macos-x86-64
+          path: artifacts/macos-x86-64
+
   deploy:
     name: deploy
-    needs: [build-linux]
+    needs: [build-linux, build-macos]
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
@@ -22,6 +33,10 @@ jobs:
         with:
           name: linux-x86-64
           path: artifacts/linux-x86-64
+      - uses: actions/download-artifact@v1
+        with:
+          name: macos-x86-64
+          path: artifacts/macos-x86-64
       - run: bin/deploy.sh
         if: >-
           startsWith(github.ref, 'refs/tags/v')
