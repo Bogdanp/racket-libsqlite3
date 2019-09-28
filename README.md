@@ -1,6 +1,6 @@
 # racket-libsqlite3
 
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fbogdanp%2Fracket-libsqlite3&style=flat)](https://actions-badge.atrox.dev/bogdanp/racket-libsqlite3/goto)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FBogdanp%2Fracket-libsqlite3%2Fbadge&style=flat)](https://actions-badge.atrox.dev/Bogdanp/racket-libsqlite3/goto)
 
 This package distributes [libsqlite3] as a Racket package for Linux:
 
