@@ -2,6 +2,9 @@
 
 set -euxo pipefail
 
+sudo apt-get update && \
+    sudo apt-get install -y tcl
+
 git submodule update --init
 pushd sqlite
 
