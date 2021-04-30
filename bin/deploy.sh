@@ -37,7 +37,7 @@ for package in "libsqlite3-x86_64-linux" "libsqlite3-x86_64-macosx" "libsqlite3-
     version=$(grep version info.rkt | cut -d'"' -f2)
     filename="$package-$version.tar.gz"
     mkdir -p dist
-    tar -cvzf "dist/$filename" LICENSE info.rkt libsqlite3.*
+    tar -cvzf "dist/$filename" LICENSE info.rkt ./*sqlite3.*
     sha1sum "dist/$filename" | cut -d ' ' -f 1 | tr -d '\n' > "dist/$filename.CHECKSUM"
     scp -o StrictHostKeyChecking=no \
         -i ../deploy-key \
