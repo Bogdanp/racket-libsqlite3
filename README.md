@@ -2,13 +2,18 @@
 
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FBogdanp%2Fracket-libsqlite3%2Fbadge&style=flat)](https://actions-badge.atrox.dev/Bogdanp/racket-libsqlite3/goto)
 
-This package distributes recent versions of [libsqlite3].
+This package distributes recent versions of [libsqlite3] as a Racket
+package for Linux, macOS and Windows.
 
-* `libsqlite3`
-* `libsqlite3-i386-win32`
-* `libsqlite3-x86_64-linux`
-* `libsqlite3-aarch64-macosx`
-* `libsqlite3-x86_64-macosx`
-* `libsqlite3-x86_64-win32`
+The dynamic libraries are built on the following systems:
+
+| Package                   | OS/Version   | Compatibility                 |
+|---------------------------|--------------|-------------------------------|
+| libsqlite3-x86_64-linux   | Ubuntu 16.04 | Ubuntu 16.04 and up           |
+| libsqlite3-aarch64-macosx | macOS 11     | macOS 11 (Big Sur) and up     |
+| libsqlite3-x86_64-macosx  | macOS 10.14  | macOS 10.14 (Yosemite) and up |
+| libsqlite3-i386-win32     | Windows 2016 | Windows 10 and up             |
+| libsqlite3-x86_64-win32   | Windows 2016 | Windows 10 and up             |
+
 
 [libsqlite3]: https://github.com/sqlite/sqlite
