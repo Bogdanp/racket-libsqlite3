@@ -7,6 +7,7 @@ This package distributes recent versions of [libsqlite3].
 * `libsqlite3`
 * `libsqlite3-i386-win32`
 * `libsqlite3-x86_64-linux`
+* `libsqlite3-aarch64-macosx`
 * `libsqlite3-x86_64-macosx`
 * `libsqlite3-x86_64-win32`
 

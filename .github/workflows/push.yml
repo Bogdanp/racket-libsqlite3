@@ -12,8 +12,19 @@ jobs:
           name: linux-x86-64
           path: artifacts/linux-x86-64
 
-  build-macos:
-    name: build on macOS
+  build-macos-aarch64:
+    name: build on macOS aarch64
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@master
+      - run: arch -arm64 bin/build-macos-aarch64.sh
+      - uses: actions/upload-artifact@v1
+        with:
+          name: macos-aarch64
+          path: artifacts/macos-aarch64
+
+  build-macos-x86-64:
+    name: build on macOS x86-64
     runs-on: macOS-10.14
     steps:
       - uses: actions/checkout@master
@@ -53,7 +64,7 @@ jobs:
 
   deploy:
     name: deploy
-    needs: [build-linux, build-macos, build-win32-i386, build-win32-x86-64]
+    needs: [build-linux, build-macos-aarch64, build-macos-x86-64, build-win32-i386, build-win32-x86-64]
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
@@ -61,6 +72,10 @@ jobs:
         with:
           name: linux-x86-64
           path: artifacts/linux-x86-64
+      - uses: actions/download-artifact@v1
+        with:
+          name: macos-aarch64
+          path: artifacts/macos-aarch64
       - uses: actions/download-artifact@v1
         with:
           name: macos-x86-64
