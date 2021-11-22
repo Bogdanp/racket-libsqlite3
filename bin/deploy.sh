@@ -7,6 +7,7 @@ log() {
 }
 
 log "Ensuring artifact folders are present..."
+test -e artifacts/linux-aarch64 || exit 2
 test -e artifacts/linux-x86-64 || exit 2
 test -e artifacts/macos-aarch64 || exit 2
 test -e artifacts/macos-x86-64 || exit 2
@@ -14,6 +15,7 @@ test -e artifacts/win32-i386 || exit 2
 test -e artifacts/win32-x86-64 || exit 2
 
 log "Copying artifacts into their respective packages..."
+cp artifacts/linux-aarch64/lib/libsqlite3.so.0.8.6 libsqlite3-aarch64-linux/libsqlite3.so
 cp artifacts/linux-x86-64/lib/libsqlite3.so.0.8.6 libsqlite3-x86_64-linux/libsqlite3.so
 cp artifacts/macos-aarch64/lib/libsqlite3.0.dylib libsqlite3-aarch64-macosx/libsqlite3.dylib
 cp artifacts/macos-x86-64/lib/libsqlite3.0.dylib libsqlite3-x86_64-macosx/libsqlite3.dylib
@@ -32,7 +34,7 @@ chmod 0600 deploy-key
 trap "rm -f deploy-key" EXIT
 
 log "Building packages..."
-for package in "libsqlite3-x86_64-linux" "libsqlite3-aarch64-macosx" "libsqlite3-x86_64-macosx" "libsqlite3-i386-win32" "libsqlite3-x86_64-win32"; do
+for package in "libsqlite3-aarch64-linux" "libsqlite3-x86_64-linux" "libsqlite3-aarch64-macosx" "libsqlite3-x86_64-macosx" "libsqlite3-i386-win32" "libsqlite3-x86_64-win32"; do
     log "Building '$package'..."
     pushd "$package"
 

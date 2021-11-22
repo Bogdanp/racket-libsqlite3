@@ -1,9 +1,20 @@
 on: push
 name: build
 jobs:
-  build-linux:
-    name: build on Ubuntu
-    runs-on: ubuntu-16.04
+  build-linux-aarch64:
+    name: build on Debian aarch64
+    runs-on: [self-hosted, linux, ARM64]
+    steps:
+      - uses: actions/checkout@master
+      - run: bin/build-linux-aarch64.sh
+      - uses: actions/upload-artifact@v1
+        with:
+          name: linux-aarch64
+          path: artifacts/linux-aarch64
+
+  build-linux-x86-64:
+    name: build on Ubuntu x86-64
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
       - run: bin/build-linux-x86-64.sh
@@ -14,7 +25,7 @@ jobs:
 
   build-macos-aarch64:
     name: build on macOS aarch64
-    runs-on: self-hosted
+    runs-on: [self-hosted, macOS]
     steps:
       - uses: actions/checkout@master
       - run: arch -arm64 bin/build-macos-aarch64.sh
@@ -64,10 +75,20 @@ jobs:
 
   deploy:
     name: deploy
-    needs: [build-linux, build-macos-aarch64, build-macos-x86-64, build-win32-i386, build-win32-x86-64]
+    needs:
+      - build-linux-aarch64
+      - build-linux-x86-64
+      - build-macos-aarch64
+      - build-macos-x86-64
+      - build-win32-i386
+      - build-win32-x86-64
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
+      - uses: actions/download-artifact@v1
+        with:
+          name: linux-aarch64
+          path: artifacts/linux-aarch64
       - uses: actions/download-artifact@v1
         with:
           name: linux-x86-64
