@@ -1,6 +1,6 @@
 #lang info
 
-(define version "3.37")
+(define version "3.39.2")
 (define deps '("base"
                ("libsqlite3-aarch64-linux" #:platform #rx"aarch64-linux")
                ("libsqlite3-aarch64-macosx" #:platform #rx"aarch64-macosx")
