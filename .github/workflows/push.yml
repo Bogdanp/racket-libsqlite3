@@ -36,7 +36,7 @@ jobs:
 
   build-macos-x86-64:
     name: build on macOS x86-64
-    runs-on: macOS-10.14
+    runs-on: macOS-10.15
     steps:
       - uses: actions/checkout@master
       - run: bin/build-macos-x86-64.sh
@@ -47,7 +47,7 @@ jobs:
 
   build-win32-i386:
     name: build on Windows i386
-    runs-on: windows-2016
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@master
       - uses: ilammy/msvc-dev-cmd@v1
@@ -61,7 +61,7 @@ jobs:
 
   build-win32-x86-64:
     name: build on Windows x86-64
-    runs-on: windows-2016
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@master
       - uses: ilammy/msvc-dev-cmd@v1
