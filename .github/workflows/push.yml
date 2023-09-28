@@ -14,7 +14,7 @@ jobs:
 
   build-linux-x86-64:
     name: build on Ubuntu x86-64
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@master
       - run: bin/build-linux-x86-64.sh
@@ -36,7 +36,7 @@ jobs:
 
   build-macos-x86-64:
     name: build on macOS x86-64
-    runs-on: macOS-10.15
+    runs-on: macOS-13
     steps:
       - uses: actions/checkout@master
       - run: bin/build-macos-x86-64.sh

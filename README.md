@@ -7,14 +7,14 @@ package for Linux, macOS and Windows.
 
 The dynamic libraries are built on the following systems:
 
-| Package                   | OS/Version   | Compatibility                 |
-|---------------------------|--------------|-------------------------------|
-| libsqlite3-aarch64-linux  | Debian 10    | Debian 10 and up              |
-| libsqlite3-x86_64-linux   | Debian 10    | Debian 10 and up              |
-| libsqlite3-aarch64-macosx | macOS 11     | macOS 11 (Big Sur) and up     |
-| libsqlite3-x86_64-macosx  | macOS 10.15  | macOS 10.15 (Catalina) and up |
-| libsqlite3-i386-win32     | Windows 2019 | Windows 10 and up             |
-| libsqlite3-x86_64-win32   | Windows 2019 | Windows 10 and up             |
+| Package                   | OS/Version   | Compatibility              |
+|---------------------------|--------------|----------------------------|
+| libsqlite3-aarch64-linux  | Debian 10    | Debian 10 and up           |
+| libsqlite3-x86_64-linux   | Debian 10    | Debian 10 and up           |
+| libsqlite3-aarch64-macosx | macOS 13     | macOS 13 (Big Sur) and up  |
+| libsqlite3-x86_64-macosx  | macOS 13     | macOS 13 (Catalina) and up |
+| libsqlite3-i386-win32     | Windows 2019 | Windows 10 and up          |
+| libsqlite3-x86_64-win32   | Windows 2019 | Windows 10 and up          |
 
 
 [libsqlite3]: https://github.com/sqlite/sqlite
