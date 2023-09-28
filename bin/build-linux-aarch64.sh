@@ -2,12 +2,6 @@
 
 set -euxo pipefail
 
-sudo apt-get update && \
-    sudo apt-get install -y tcl
-
-git submodule update --init
-pushd sqlite
-
 export CFLAGS="\
   -DSQLITE_ENABLE_FTS3 \
   -DSQLITE_ENABLE_FTS3_PARENTHESIS \
@@ -24,14 +18,22 @@ export CFLAGS="\
   -O2 \
   -fPIC"
 
-export LIBS="-lm"
-
-./configure \
-    --disable-tcl \
-    --enable-shared \
-    --enable-tempstore=always \
-    --prefix="$(pwd)/../artifacts/linux-aarch64"
-make clean
-make
-make install
-popd
+git submodule update --init
+docker run --rm \
+       -e CFLAGS="$CFLAGS" \
+       -e PREFIX="$(pwd)/artifacts/linux-aarch64" \
+       -e LIBS="-lm" \
+       -v "$(pwd)":"$(pwd)" \
+       -w "$(pwd)/sqlite" \
+       debian:10.0 \
+       bash -c '\
+            apt update && \
+              apt install -y build-essential tcl && \
+              ./configure \
+                  --disable-tcl \
+                  --enable-shared \
+                  --enable-tempstore=always \
+                  --prefix="$PREFIX" && \
+              make clean && \
+              make && \
+              make install'
