@@ -25,7 +25,7 @@ jobs:
 
   build-macos-aarch64:
     name: build on macOS aarch64
-    runs-on: [self-hosted, macOS]
+    runs-on: macOS-13-xlarge
     steps:
       - uses: actions/checkout@master
       - run: arch -arm64 bin/build-macos-aarch64.sh
