@@ -18,13 +18,11 @@ export CFLAGS="\
   -O2 \
   -fPIC"
 
-export LIBS="-lm"
-
 git submodule update --init
 docker run --rm \
        -e CFLAGS="$CFLAGS" \
+       -e LDFLAGS="-lm" \
        -e PREFIX="$(pwd)/artifacts/linux-x86-64" \
-       -e LIBS="-lm" \
        -v "$(pwd)":"$(pwd)" \
        -w "$(pwd)/sqlite" \
        debian:11.0 \
