@@ -25,7 +25,7 @@ docker run --rm \
        -e LIBS="-lm" \
        -v "$(pwd)":"$(pwd)" \
        -w "$(pwd)/sqlite" \
-       debian:10.0 \
+       debian:11.0 \
        bash -c '\
             apt update && \
               apt install -y build-essential tcl && \
