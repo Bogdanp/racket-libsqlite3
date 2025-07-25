@@ -18,6 +18,8 @@ export CFLAGS="\
   -O2 \
   -fPIC"
 
+export LIBS="-lm"
+
 git submodule update --init
 docker run --rm \
        -e CFLAGS="$CFLAGS" \
