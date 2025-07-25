@@ -3,7 +3,7 @@ name: build
 jobs:
   build-linux-aarch64:
     name: build on Debian aarch64
-    runs-on: [self-hosted, linux, ARM64]
+    runs-on: ubuntu-22.04-arm
     steps:
       - uses: actions/checkout@master
       - run: bin/build-linux-aarch64.sh
