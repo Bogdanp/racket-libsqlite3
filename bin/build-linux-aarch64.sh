@@ -32,7 +32,6 @@ docker run --rm \
               ./configure \
                   --disable-tcl \
                   --enable-shared \
-                  --enable-tempstore=always \
                   --prefix="$PREFIX" && \
               make clean && \
               make && \

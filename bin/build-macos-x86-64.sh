@@ -28,7 +28,6 @@ export LIBS="-lm"
 ./configure \
     --disable-tcl \
     --enable-shared \
-    --enable-tempstore=always \
     --prefix="$(pwd)/../artifacts/macos-x86-64"
 make clean
 make
