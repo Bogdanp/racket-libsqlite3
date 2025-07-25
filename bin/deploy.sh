@@ -15,8 +15,8 @@ test -e artifacts/win32-i386 || exit 2
 test -e artifacts/win32-x86-64 || exit 2
 
 log "Copying artifacts into their respective packages..."
-cp artifacts/linux-aarch64/lib/libsqlite3.so.0.8.6 libsqlite3-aarch64-linux/libsqlite3.so
-cp artifacts/linux-x86-64/lib/libsqlite3.so.0.8.6 libsqlite3-x86_64-linux/libsqlite3.so
+cp artifacts/linux-aarch64/lib/libsqlite3.so libsqlite3-aarch64-linux/libsqlite3.so
+cp artifacts/linux-x86-64/lib/libsqlite3.so libsqlite3-x86_64-linux/libsqlite3.so
 cp artifacts/macos-aarch64/lib/libsqlite3.0.dylib libsqlite3-aarch64-macosx/libsqlite3.dylib
 cp artifacts/macos-x86-64/lib/libsqlite3.0.dylib libsqlite3-x86_64-macosx/libsqlite3.dylib
 cp artifacts/win32-i386/sqlite3.dll libsqlite3-i386-win32/sqlite3.dll
