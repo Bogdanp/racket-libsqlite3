@@ -47,7 +47,7 @@ jobs:
 
   build-win32-i386:
     name: build on Windows i386
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
       - uses: actions/checkout@master
       - uses: ilammy/msvc-dev-cmd@v1
@@ -61,7 +61,7 @@ jobs:
 
   build-win32-x86-64:
     name: build on Windows x86-64
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
       - uses: actions/checkout@master
       - uses: ilammy/msvc-dev-cmd@v1
